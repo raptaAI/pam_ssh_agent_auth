@@ -38,6 +38,7 @@ enum types {
 	KEY_RSA,
 	KEY_DSA,
 	KEY_ECDSA,
+	KEY_ECDSA_SK,
 	KEY_ED25519,
 	KEY_UNSPEC
 };

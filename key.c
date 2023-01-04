@@ -1225,6 +1225,8 @@ pamsshagentauth_key_verify(
 		return ssh_rsa_verify(key, signature, signaturelen, data, datalen);
 	case KEY_ECDSA:
 		return ssh_ecdsa_verify(key, signature, signaturelen, data, datalen);
+	case KEY_ECDSA_SK:
+		return ssh_ecdsa_sk_verify(key, signature, signaturelen, data, datalen);
 	case KEY_ED25519:
 		return ssh_ed25519_verify(key, signature, signaturelen, data, datalen);
 	default:
