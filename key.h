@@ -63,13 +63,67 @@ struct ed25519 {
 	ed25519_secret_key sk;
 };
 
+// struct sshkey {
+// 	int	 type;
+// 	int	 flags;
+// 	/* KEY_RSA */
+// 	RSA	*rsa;
+// 	/* KEY_DSA */
+// 	DSA	*dsa;
+// 	/* KEY_ECDSA and KEY_ECDSA_SK */
+// 	int	 ecdsa_nid;	/* NID of curve */
+// 	EC_KEY	*ecdsa;
+// 	/* KEY_ED25519 and KEY_ED25519_SK */
+// 	u_char	*ed25519_sk;
+// 	u_char	*ed25519_pk;
+// 	/* KEY_XMSS */
+// 	char	*xmss_name;
+// 	char	*xmss_filename;	/* for state file updates */
+// 	void	*xmss_state;	/* depends on xmss_name, opaque */
+// 	u_char	*xmss_sk;
+// 	u_char	*xmss_pk;
+// 	/* KEY_ECDSA_SK and KEY_ED25519_SK */
+// 	char	*sk_application;
+// 	uint8_t	sk_flags;
+// 	struct sshbuf *sk_key_handle;
+// 	struct sshbuf *sk_reserved;
+// 	/* Certificates */
+// 	struct sshkey_cert *cert;
+// 	/* Private key shielding */
+// 	u_char	*shielded_private;
+// 	size_t	shielded_len;
+// 	u_char	*shield_prekey;
+// 	size_t	shield_prekey_len;
+// };
+
 struct Key {
 	int	 type;
 	int	 flags;
 	RSA	*rsa;
 	DSA	*dsa;
+	int	 ecdsa_nid;	/* NID of curve */
 	EC_KEY *ecdsa;
-	ED25519 *ed25519;
+	// ED25519 *ed25519;
+	u_char	*ed25519_sk;
+	u_char	*ed25519_pk;
+	/* KEY_XMSS */
+	char	*xmss_name;
+	char	*xmss_filename;	/* for state file updates */
+	void	*xmss_state;	/* depends on xmss_name, opaque */
+	u_char	*xmss_sk;
+	u_char	*xmss_pk;
+	/* KEY_ECDSA_SK and KEY_ED25519_SK */
+	char	*sk_application;
+	uint8_t	sk_flags;
+	struct sshbuf *sk_key_handle;
+	struct sshbuf *sk_reserved;
+	/* Certificates */
+	struct sshkey_cert *cert;
+	/* Private key shielding */
+	u_char	*shielded_private;
+	size_t	shielded_len;
+	u_char	*shield_prekey;
+	size_t	shield_prekey_len;
 };
 
 Key		*pamsshagentauth_key_new(int);
