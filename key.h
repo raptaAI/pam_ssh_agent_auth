@@ -102,6 +102,7 @@ int	 ssh_rsa_sign(const Key *, u_char **, u_int *, const u_char *, u_int);
 int	 ssh_rsa_verify(const Key *, const u_char *, u_int, const u_char *, u_int);
 int	 ssh_ecdsa_sign(const Key *, u_char **, u_int *, const u_char *, u_int);
 int	 ssh_ecdsa_verify(const Key *, const u_char *, u_int, const u_char *, u_int);
+int  ssh_ecdsa_sk_verify(const Key *, const u_char *, u_int, const u_char *, u_int);
 int	 ssh_ed25519_sign(const Key *, u_char **, u_int *, const u_char *, u_int);
 int	 ssh_ed25519_verify(const Key *, const u_char *, u_int, const u_char *, u_int);
 
